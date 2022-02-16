@@ -92,11 +92,11 @@
     <!-- Page Header Start -->
     <div class="container-fluid bg-secondary mb-5">
         <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
-            <h1 class="font-weight-semi-bold text-uppercase mb-3">Shop Detail</h1>
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">Login</h1>
             <div class="d-inline-flex">
-                <p class="m-0"><a href="">Home</a></p>
+                <p class="m-0"><a href="/">Home</a></p>
                 <p class="m-0 px-2">-</p>
-                <p class="m-0">Shop Detail</p>
+                <p class="m-0">Login</p>
             </div>
         </div>
     </div>
@@ -106,46 +106,27 @@
     <!-- Shop Detail Start -->
     <div class="container-fluid py-5">
         <div class="row px-xl-5">
-            <div class="col-lg-5 pb-5">
-                <div id="product-carousel" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner border">
-                        <div class="carousel-item active">
-                            <img class="w-100 h-100" src="<%= product.photo %>" alt="Image">
-                        </div>
+            <div class="border px-3 py-3 form-group" style="margin: 0 auto; width: 30% !important;">
+                <form method="post" action="/user/login">
+                    <div class="form-group">
+                        <input type="text" class="form-control border-0 py-6" placeholder="First Name" required="required">
                     </div>
-                    <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
-                        <i class="fa fa-2x fa-angle-left text-dark"></i>
-                    </a>
-                    <a class="carousel-control-next" href="#product-carousel" data-slide="next">
-                        <i class="fa fa-2x fa-angle-right text-dark"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-7 pb-5">
-                <h3 class="font-weight-semi-bold"><%= product.title %></h3>
-                <div class="d-flex mb-3">
-                    <div class="text-primary mr-2">
-                        <small class="fas fa-star"></small>
-                        <small class="fas fa-star"></small>
-                        <small class="fas fa-star"></small>
-                        <small class="fas fa-star-half-alt"></small>
-                        <small class="far fa-star"></small>
+                    <div class="form-group">
+                        <input type="text" class="form-control border-0 py-6" placeholder="Last Name" required="required">
                     </div>
-                    <small class="pt-1">(50 Reviews)</small>
-                </div>
-                <% if (product.promotionalPrice == 0){ %>
-                    <h3 class="font-weight-semi-bold mb-4">$<%= product.marketPrice %></h3>
-                <% } else { %>
-                    <h6 class="text-muted ml-2"><del>$<%= product.marketPrice %></del></h6>
-                    <h3 class="font-weight-semi-bold mb-4">$<%= product.promotionalPrice %></h3>
-                <% } %>
-                <p class="mb-4">
-                    <%- product.description %>
-                </p>
-                <div class="d-flex align-items-center mb-4 pt-2">
-                    <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To Collection</button>
-                </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control border-0 py-6" placeholder="User Name" required="required">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control border-0 py-6" placeholder="E-Mail" required="required">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control border-0 py-6" placeholder="Password" required="required">
+                    </div>
+                    <div>
+                        <button class="btn btn-primary btn-block border-0 py-3" type="submit">Login</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
