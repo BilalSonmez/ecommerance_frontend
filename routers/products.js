@@ -3,8 +3,8 @@ const express = require('express');
 const router = express.Router();
 const { baseApiUrl } = require('../config/var');
 
+//Ürünlerin API aracılığıyla sayfaya çekilmesi
 router.get('/', async (req, res) => {
-    //https://damp-reaches-15702.herokuapp.com
     let product = [];
     https.get(baseApiUrl + "/api/product/list", function(resp){
         var body = '';
@@ -25,6 +25,7 @@ router.get('/', async (req, res) => {
     });
 });
 
+//Ürünün API aracılığıyla sayfaya çekilmesi
 router.get('/:slug', async (req, res) => {
     //https://damp-reaches-15702.herokuapp.com
     let product = [];

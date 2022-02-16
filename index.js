@@ -10,6 +10,7 @@ app.engine('.ejs', ejs.__express);
 app.set('views', __dirname+'/views');
 app.use(express.static('public'))
 
+//Route yapıları
 app.get('/', function (req, res){
     res.render('./index.ejs', {
 		title: 'Challange E-Commerance'

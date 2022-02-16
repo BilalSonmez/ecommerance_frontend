@@ -3,12 +3,14 @@ const express = require('express');
 const router = express.Router();
 const { baseApiUrl } = require('../config/var');
 
+// Giriş Sayfası
 router.get('/login', async (req, res) => {
     res.render('./login.ejs', {
         title: 'Challange Login'
     });
 });
 
+// Giriş sayfası POST *
 router.post('/login', async (req, res) => {
     https.post(baseApiUrl + "/api/auth/", function(resp){
         var body = '';
@@ -25,6 +27,7 @@ router.post('/login', async (req, res) => {
     });
 });
 
+// Kayıt Sayfası
 router.get('/register', async (req, res) => {
     res.render('./register.ejs', {
         title: 'Challange Register'
