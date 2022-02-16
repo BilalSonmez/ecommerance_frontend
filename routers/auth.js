@@ -1,4 +1,4 @@
-const https = require('https');
+const axios = require('axios');
 const express = require('express');
 const router = express.Router();
 const { baseApiUrl } = require('../config/var');
@@ -6,24 +6,32 @@ const { baseApiUrl } = require('../config/var');
 // Giriş Sayfası
 router.get('/login', async (req, res) => {
     res.render('./login.ejs', {
-        title: 'Challange Login'
+        title: 'Challange Login',
+        message: ""
     });
 });
 
 // Giriş sayfası POST *
-router.post('/login', async (req, res) => {
-    https.post(baseApiUrl + "/api/auth/", function(resp){
-        var body = '';
-    
-        resp.on('data', function(chunk){
-            body += chunk;
+router.post('/login', function (req, res) {
+    axios.post(baseApiUrl + '/api/auth', req.body).then(function (response){
+        var result = response.data;
+        if (result.status) {
+            req.session.tokenStr = result.token;
+            res.writeHead(301, {
+                'Location': '/'
+            });
+            res.end();
+        } else {
+            res.render('./login.ejs', {
+                title: 'Challange Login',
+                message: "Error! E-Mail & Password Incorrect"
+            });
+        }
+    }).catch(function(error) {
+        res.render('./login.ejs', {
+            title: 'Challange Login',
+            message: "Error! E-Mail & Password Incorrect"
         });
-    
-        resp.on('end', function(){
-            var data = JSON.parse(body);
-        });
-    }).on('error', function(e){
-          console.log("Got an error: ", e);
     });
 });
 
