@@ -5,16 +5,14 @@ const auth = require('./routers/auth');
 
 
 const app = express();
+// Express templatesi
 app.engine('.ejs', ejs.__express);
 app.set('views', __dirname+'/views');
 app.use(express.static('public'))
 
 app.get('/', function (req, res){
     res.render('./index.ejs', {
-		title: 'Challange E-Commerance',
-		name: 'Kenan Atmaca',
-		site: 'kenanatmaca.com',
-		data: {bio:'bla bla bla...',twitter: '@uikenan', instagram: '@kenan.jpeg'}
+		title: 'Challange E-Commerance'
 	});
 });
 app.use('/product', products);
