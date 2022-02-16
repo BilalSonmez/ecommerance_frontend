@@ -3,9 +3,9 @@ const express = require('express');
 const router = express.Router();
 const { baseApiUrl } = require('../config/var');
 
-router.get('/', async (req, res) => {
+router.get('/login', async (req, res) => {
     //https://damp-reaches-15702.herokuapp.com
-    let product = [];
+    /*let product = [];
     https.get(baseApiUrl + "/api/product/list", function(resp){
         var body = '';
     
@@ -22,10 +22,14 @@ router.get('/', async (req, res) => {
         });
     }).on('error', function(e){
           console.log("Got an error: ", e);
+    });*/
+
+    res.render('./login.ejs', {
+        title: 'Challange Products'
     });
 });
 
-router.get('/:slug', async (req, res) => {
+router.get('/register', async (req, res) => {
     //https://damp-reaches-15702.herokuapp.com
     let product = [];
     https.get(baseApiUrl + "/api/product/get/" + req.params.slug, function(resp){

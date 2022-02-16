@@ -1,5 +1,7 @@
 const express = require('express');
 var ejs = require('ejs');
+const products = require('./routers/products');
+const auth = require('./routers/auth');
 
 
 const app = express();
@@ -15,6 +17,9 @@ app.get('/', function (req, res){
 		data: {bio:'bla bla bla...',twitter: '@uikenan', instagram: '@kenan.jpeg'}
 	});
 });
+app.use('/product', products);
+app.use('/user', auth);
+
 
 app.listen(8000, function(){
     console.log("Started on 8000 Port");
