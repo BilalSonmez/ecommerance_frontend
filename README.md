@@ -1,4 +1,4 @@
-# E-Commerance Challenge Back-End
+# E-Commerance Challenge Front-End
 
 Bu projede cat-me, ejs, express ve express-session extensionları kullanılmıştır.
 
