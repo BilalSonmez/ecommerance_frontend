@@ -3,6 +3,7 @@ var ejs = require('ejs');
 const bodyParser = require('body-parser');
 const products = require('./routers/products');
 const auth = require('./routers/auth');
+const collection = require('./routers/collection');
 const session = require('express-session');
 
 
@@ -21,15 +22,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //Route yapıları
 app.get('/', function (req, res){
-    console.log(req.session.tokenStr);
-    res.render('./index.ejs', {
-		  title: 'Challange E-Commerance'
-	});
+  var sess = req.session;
+  res.render('./index.ejs', {
+    title: 'Challange E-Commerance',
+    userData: typeof sess.userData !== "undefined" ? sess.userData : false
+  });
 });
 app.use('/product', products);
 app.use('/user', auth);
+app.use('/collection', collection);
 
 
 app.listen(8000, function(){
-    console.log("Started on 8000 Port");
+  console.log("Started on 8000 Port");
 });
