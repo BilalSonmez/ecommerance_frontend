@@ -1,5 +1,5 @@
 // Backendin deploy edildiği heroku linki
 
-const baseApiUrl =  "http://localhost:4000";
+const baseApiUrl = 'https://damp-reaches-15702.herokuapp.com';
 
 exports.baseApiUrl = baseApiUrl;

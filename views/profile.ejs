@@ -23,6 +23,17 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/css/style.css" rel="stylesheet">
+
+
+    <style>
+        .card-gradient {
+           height: 500px;
+        }
+
+        a:hover {
+           text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -111,15 +122,29 @@
                 <div class="row pb-3">
                     <% collection.forEach(function(value) { %>
                         <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                            <a href="/collection/<%= value.contentLink %>">
-                                <div class="card product-item border-0 mb-4">
-                                    <div class="card-header">
-                                        <h4><%- value.title %></h4>
-                                        <span>Ürün Sayısı : <%- value.products.length %></span>
-                                    </div>
-                                </div>
-                            </a>
+                           <a href="/collection/<%= value.contentLink %>">
+                              <div class="card product-item border-0 mb-4">
+                                 <div
+                                    class="card-gradient"
+                                    style="
+                                       background: linear-gradient(
+                                          217deg,
+                                          #2cc9a3,
+                                          #d19c97
+                                       );
+                                    "
+                                 ></div>
+                                 <div class="card-header">
+                                    <h4><%- value.title %></h4>
+                                    <span
+                                       >Ürün Sayısı : <%- value.products.length
+                                       %></span
+                                    >
+                                 </div>
+                              </div>
+                           </a>
                         </div>
+                        <!-- item -->
                     <% }) %>
                 </div>
             </div>
